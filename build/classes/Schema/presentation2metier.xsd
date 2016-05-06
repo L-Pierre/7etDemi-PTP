@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/presentation2metier"
+	xmlns:tns="http://www.example.org/presentation2metier"
+	elementFormDefault="qualified"
+	xmlns:pref="http://www.example.org/request" xmlns:pref1="http://www.example.org/response" xmlns:Q1="http://www.example.org/presentation2metier">
+
+
+
+    <element name="authentifier">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="login" type="string"></attribute>
+
+    				<attribute name="pass" type="string"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+
+    <element name="rejoindre-partie">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="id_user" type="int"></attribute>
+
+    				<attribute name="id_partie" type="int"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+    <element name="consulter-stats">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="id_user" type="int"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+    <element name="creer-compte">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="login" type="string"></attribute>
+
+    				<attribute name="pass" type="string"></attribute>
+
+
+
+    				<attribute name="confpass" type="string"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+    <element name="creer-partie">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="NomPartie" type="string"></attribute>
+
+    				<attribute name="maxPlayer" type="int"></attribute>
+
+    				<attribute name="id_user" type="int"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+
+    <element name="lancer-des">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="id_user" type="int"></attribute>
+
+    				<attribute name="id_partie" type="int"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+
+    <complexType name="partie">
+    	<sequence>
+    	</sequence>
+    	<attribute name="id" type="int"></attribute>
+    	<attribute name="name" type="string"></attribute>
+    	<attribute name="max_player" type="int"></attribute>
+    </complexType>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <element name="arreter-lancer-des">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="id_user" type="int"></attribute>
+
+    				<attribute name="id_partie" type="int"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="liste-partie">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+
+
+    				<attribute name="id_user" type="int"></attribute>
+
+
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+    <element name="deconnecter">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:request">
+    				<attribute name="id_user" type="int"></attribute>
+
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <complexType name="request">
+    	<attribute name="MessageID" type="string"></attribute>
+    </complexType>
+</schema>

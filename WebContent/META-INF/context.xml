@@ -1,0 +1,24 @@
+<Context antiJARLocking="true">
+<Resource
+	name="ConnectionFactory"
+	auth="Container"
+	type="org.apache.activemq.ActiveMQConnectionFactory"
+	description="JMS Connection Factory"
+	factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+	brokerURL="tcp://localhost:61616"
+	brokerName="LocalActiveMQBroker"
+	useEmbeddedBroker="false"/>
+	
+<Resource name="sender"
+	auth="Container"
+	type="org.apache.activemq.command.ActiveMQQueue"
+	factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+	physicalName="presentation2metier"/>
+
+<Resource name="receiver"
+	auth="Container"
+	type="org.apache.activemq.command.ActiveMQQueue"
+	factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+	physicalName="metier2presentation"/>
+	
+</Context>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/presentation2metier"
+	xmlns:tns="http://www.example.org/presentation2metier"
+	elementFormDefault="qualified"
+	xmlns:pref="http://www.example.org/request" xmlns:pref1="http://www.example.org/response" xmlns:Q1="http://www.example.org/presentation2metier">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <complexType name="partie">
+    	<sequence>
+    		<element name="scoreTable" type="string"
+    			maxOccurs="unbounded" minOccurs="1">
+    		</element>
+    		<element name="round" type="string"
+    			maxOccurs="unbounded" minOccurs="1">
+    		</element>
+    		<element name="admin" type="string"></element>
+    	</sequence>
+    	<attribute name="id" type="int"></attribute>
+    	<attribute name="name" type="string"></attribute>
+    	<attribute name="max_player" type="int"></attribute>
+    	<attribute name="open" type="boolean" default="true"></attribute>
+    </complexType>
+
+
+
+
+<complexType name="response" abstract="false">
+    	<sequence>
+    	</sequence>
+    	<attribute name="urlSource" type="string"></attribute>
+    	<attribute name="urlDestination" type="string"></attribute>
+    	<attribute name="messageID" type="string"></attribute>
+    </complexType>
+
+
+
+
+
+
+
+<element name="response-liste-partie">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<sequence>
+    					<element name="listePartie" type="tns:partie" maxOccurs="unbounded" minOccurs="0"></element>
+    				</sequence>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+    <element name="response-authentifier">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<sequence></sequence>
+    				<attribute name="ok" type="boolean"></attribute>
+    				<attribute name="id_user" type="int"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="response-creer-compte">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<sequence>
+    				</sequence>
+    				<attribute name="ok" type="boolean"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+<element name="response-arreter-lancer-des">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<attribute name="ok" type="boolean"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="response-creer-partie">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<sequence>
+    					<element name="partie" type="tns:partie"></element>
+    				</sequence>
+    				<attribute name="ok" type="boolean"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+    <element name="response-rejoindre-partie">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<sequence>
+    				</sequence>
+    				<attribute name="ok" type="boolean"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+
+
+
+    <element name="response-consulter-stats">
+    	<complexType>
+    		<complexContent>
+    			<extension base="tns:response">
+    				<sequence></sequence>
+    				<attribute name="nb_partie" type="int"></attribute>
+    				<attribute name="nb_victoire" type="int"></attribute>
+    			</extension>
+    		</complexContent>
+    	</complexType>
+    </element>
+
+
+</schema>
